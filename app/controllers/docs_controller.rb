@@ -22,14 +22,24 @@ class DocsController < ApplicationController
             render 'new'
         end
     end
-
+    #just display the information in a haml file, not update the doc
     def edit
     end
-
+    #udpate the doc in the backend
     def update
+        if @doc.update(doc_params)
+            redirect_to @doc
+        else
+            render 'edit'
+        end
     end
 
     def destroy
+        if @doc.destroy
+            redirect_to docs_path
+        else
+            render 'edit'
+        end
     end
 
     private
