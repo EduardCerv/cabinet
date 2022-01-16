@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'welcome/index'
 
   # This make the home page is going to the controller#action that you need for this example in welcome contrller and index action
